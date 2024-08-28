@@ -2,8 +2,10 @@
 @import "./blocks/footer.css";
 
 :root {
-  --color-gray: #757575;
-  --color-blue: #2196f3;
+  --color--gray: #757575;
+  --color--icon-gray: #afb1b8;
+  --color--icon-background-gray: #ffffff1a;
+  --color--blue: #2196f3;
 }
 
 * {
@@ -29,7 +31,7 @@ a {
 
 html {
   font-family: "Roboto", sans-serif;
-  color: var(--color-gray);
+  color: var(--color--gray);
 }
 
 /* #region CONTAINER */
@@ -42,8 +44,9 @@ html {
 
 /* #endregion */
 
+/* #region BANNER */
 .banner {
-  height: 600px;
+  margin: 0 auto;
 
   display: flex;
   flex-direction: column;
@@ -51,7 +54,18 @@ html {
   align-items: center;
   gap: 30px;
 
-  background-color: #2f303a;
+  height: 600px;
+  max-width: 1600px;
+
+  background: linear-gradient(
+      0deg,
+      rgba(47, 48, 58, 0.4) 0%,
+      rgba(47, 48, 58, 0.4) 100%
+    ),
+    url("../images/banner--bg.jpg"), #2f303a;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center, top -160px center, center;
 }
 
 .banner__title {
@@ -81,13 +95,17 @@ html {
 
   border: none;
   border-radius: 4px;
-  background-color: var(--color-blue);
+  background-color: var(--color--blue);
   color: #fff;
 
   box-shadow: 0px 4px 4px 0px #00000026;
 
   cursor: pointer;
 }
+
+/* #endregion */
+
+/* #region FEATURES */
 
 .features {
   padding: 94px 0;
@@ -115,6 +133,20 @@ html {
   letter-spacing: 0.25px;
 }
 
+.feature__icon-container {
+  margin-bottom: 30px;
+  padding: 25px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f4fa;
+}
+
+.feature__icon {
+  height: 70px;
+  width: 70px;
+}
+
 .feature__text {
   margin-top: 10px;
   margin-bottom: 0;
@@ -123,6 +155,10 @@ html {
   line-height: 24px;
   letter-spacing: 0.25px;
 }
+
+/* #endregion */
+
+/* #region SERVICES */
 
 .services {
   padding-bottom: 94px;
@@ -140,8 +176,11 @@ html {
   box-shadow: 0px 1px 7px 0px #000000b7;
 }
 
+.services__item {
+  transition: transform 0.2s ease-in-out;
+}
+
 .services__item:hover {
-  transition: 500ms;
   transform: scale(1.1);
 }
 
@@ -155,6 +194,10 @@ html {
 
   color: #000;
 }
+
+/* #endregion */
+
+/* #region TEAM */
 
 .team__title {
   font-size: 36px;
@@ -181,7 +224,7 @@ html {
 }
 
 .team__item {
-  height: 368px;
+  height: 428px;
   border-radius: 0px 0px 4px 4px;
 
   background-color: #fff;
@@ -227,12 +270,126 @@ html {
   letter-spacing: 0.03em;
 }
 
+.media svg {
+  display: block;
+}
+
+.person__social {
+  margin: 0 auto;
+}
+
+.social-icons__title {
+  margin: 0 0 20px;
+
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16.41px;
+  letter-spacing: 0.03em;
+
+  text-transform: uppercase;
+  text-align: left;
+
+  color: #fff;
+}
+
+.social-icons__list {
+  display: flex;
+  gap: 10px;
+
+  list-style: none;
+}
+
+.social-icons__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 44px;
+  width: 44px;
+
+  border-radius: 50%;
+  background-color: #fff;
+
+  color: var(--color--icon-gray);
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.social-icons__link--footer {
+  color: #fff;
+  background-color: var(--color--icon-background-gray);
+}
+
+.social-icons__link:hover {
+  color: white;
+  background-color: var(--color--blue);
+}
+
+.social-icons__icon {
+  height: 20px;
+  width: 20px;
+
+  color: inherit;
+}
+
+/* #endregion */
+
+/* #region CLIENTS */
+
+.clients {
+  padding: 94px 0;
+}
+
+.clients__title {
+  margin-bottom: 50px;
+  color: black;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 42.19px;
+  letter-spacing: 0.03em;
+  text-align: center;
+}
+
+.clients__list {
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  gap: 30px;
+
+  list-style: none;
+}
+
+.clients__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 170px;
+  height: 92px;
+  border: 1px solid #afb1b8;
+  border-radius: 4px;
+}
+.clients__icon {
+  width: 106px;
+  height: 60px;
+
+  color: inherit;
+}
+
+.clients__link:hover {
+  color: var(--color--blue);
+  border-color: var(--color--blue);
+}
+
 .contacts__address {
   color: #fff;
 }
 .white {
   color: #fff;
 }
+
+/* #endregion */
+
+/* #region PORTFOLIO PAGE */
 
 .portfolio {
   margin: 94px 215px;
@@ -272,7 +429,7 @@ html {
 
 .filter__button:focus,
 .filter__button:hover {
-  background-color: var(--color-blue);
+  background-color: var(--color--blue);
   color: #fff;
 }
 
@@ -317,3 +474,5 @@ html {
   line-height: 30px;
   letter-spacing: 0.03em;
 }
+
+/* #endregion */
